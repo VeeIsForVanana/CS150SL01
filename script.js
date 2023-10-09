@@ -38,3 +38,4 @@ function ai_play() {
     }
 }
 setupRound();
+console.log(ai_play);

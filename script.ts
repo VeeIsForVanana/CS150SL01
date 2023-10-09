@@ -49,3 +49,4 @@ function ai_play(): string {
 }
 
 setupRound()
+console.log(ai_play)
