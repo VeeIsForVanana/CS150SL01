@@ -5,6 +5,8 @@ let ai_score = 0
 let player_scoreboard
 let ai_scoreboard
 
+let prompt
+
 // player_wins contains a key: value pair, for key a play and value the counter-play that lets original play win
 const wins = {
   "rock": "scissor",
@@ -16,12 +18,13 @@ function setupRound() {
   player_scoreboard = document.getElementById("player_scoreboard")
   if (player_scoreboard == null)
     console.log("player scoreboard doesn't exist")
-  player_scoreboard.textContent = `${player_score}`
 
   ai_scoreboard = document.getElementById("ai_scoreboard")
   if (ai_scoreboard == null)
     console.log("ai scoreboard doesn't exist")
-  ai_scoreboard.textContent = `${ai_score}`
+  update_scoreboards()
+
+  prompt = document.getElementById("prompt")
   
   let rockButton = document.getElementById("rockButton")
   rockButton.onclick = () => player_play("rock")
@@ -33,8 +36,24 @@ function setupRound() {
   paperButton.onclick = () => player_play("paper")
 }
 
-function player_play(choice: string) {
+function update_scoreboards () {
+  player_scoreboard.textContent = `${player_score}`
+  ai_scoreboard.textContent = `${ai_score}`
+}
 
+function player_play(choice: string) {
+  ai_choice = ai_play()
+  if(wins[choice] == ai_choice) {
+    player_score += 1
+
+  }
+  else if(choice == ai_choice) {
+    
+  }
+  else {
+    ai_score += 1
+  }
+  update_scoreboards()
 }
 
 function ai_play(): string {
@@ -49,4 +68,3 @@ function ai_play(): string {
 }
 
 setupRound()
-console.log(ai_play)
