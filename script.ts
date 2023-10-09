@@ -58,14 +58,16 @@ function player_play(choice: string) {
   else {
     ai_score += 1
   }
-  prompt.textContent = `You played ${choice}, the AI played ${ai_choice}. You ${win_round ? 'win' : 'lose'}`
+  text_prompt.textContent = `You played ${choice}, the AI played ${ai_choice}. You ${win_round ? 'win' : 'lose'}`
+  console.log(`You played ${choice}, the AI played ${ai_choice}. You ${win_round ? 'win' : 'lose'}`)
   update_scoreboards()
   determineWin()
+  console.log("playing")
 }
 
 function determineWin() {
   if (player_score == 5) {
-
+    
   }
 }
 
