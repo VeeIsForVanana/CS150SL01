@@ -5,7 +5,7 @@ let ai_score = 0
 let player_scoreboard
 let ai_scoreboard
 
-let prompt
+let text_prompt
 
 let rockButton
 let scissorButton
@@ -28,7 +28,7 @@ function setupRound() {
     console.log("ai scoreboard doesn't exist")
   update_scoreboards()
 
-  prompt = document.getElementById("prompt")
+  text_prompt = document.getElementById("prompt")
   
   rockButton = document.getElementById("rockButton")
   rockButton.onclick = () => player_play("rock")
@@ -46,7 +46,7 @@ function update_scoreboards () {
 }
 
 function player_play(choice: string) {
-  ai_choice = ai_play()
+  let ai_choice = ai_play()
   let win_round = false
   if(wins[choice] == ai_choice) {
     player_score += 1
@@ -60,6 +60,13 @@ function player_play(choice: string) {
   }
   prompt.textContent = `You played ${choice}, the AI played ${ai_choice}. You ${win_round ? 'win' : 'lose'}`
   update_scoreboards()
+  determineWin()
+}
+
+function determineWin() {
+  if (player_score == 5) {
+
+  }
 }
 
 function ai_play(): string {
