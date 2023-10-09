@@ -7,6 +7,10 @@ let ai_scoreboard
 
 let prompt
 
+let rockButton
+let scissorButton
+let paperButton
+
 // player_wins contains a key: value pair, for key a play and value the counter-play that lets original play win
 const wins = {
   "rock": "scissor",
@@ -26,13 +30,13 @@ function setupRound() {
 
   prompt = document.getElementById("prompt")
   
-  let rockButton = document.getElementById("rockButton")
+  rockButton = document.getElementById("rockButton")
   rockButton.onclick = () => player_play("rock")
 
-  let scissorButton = document.getElementById("scissorsButton")
+  scissorButton = document.getElementById("scissorsButton")
   scissorButton.onclick = () => player_play("scissor")
 
-  let paperButton = document.getElementById("paperButton")
+  paperButton = document.getElementById("paperButton")
   paperButton.onclick = () => player_play("paper")
 }
 
@@ -43,9 +47,10 @@ function update_scoreboards () {
 
 function player_play(choice: string) {
   ai_choice = ai_play()
+  let win_round = false
   if(wins[choice] == ai_choice) {
     player_score += 1
-
+    win_round = true
   }
   else if(choice == ai_choice) {
     
@@ -53,6 +58,7 @@ function player_play(choice: string) {
   else {
     ai_score += 1
   }
+  prompt.textContent = `You played ${choice}, the AI played ${ai_choice}. You ${win_round ? 'win' : 'lose'}`
   update_scoreboards()
 }
 
