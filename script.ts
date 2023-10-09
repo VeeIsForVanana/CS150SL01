@@ -21,7 +21,7 @@ function setupRound() {
   ai_scoreboard = document.getElementById("ai_scoreboard")
   if (ai_scoreboard == null)
     console.log("ai scoreboard doesn't exist")
-  player_scoreboard.textContent = `${ai_score}`
+  ai_scoreboard.textContent = `${ai_score}`
   
   let rockButton = document.getElementById("rockButton")
   rockButton.onclick = () => player_play("rock")
