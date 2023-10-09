@@ -9,13 +9,15 @@
   justify-content: center;
 }
 
-.scoreboard div {
+.scoreboard {
   display: flex;
   column-gap: 2rem;
 }
 
-.scoreboard h2 {
-  text-align: center;
+.scoreboard div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
 }
 
 #header {
