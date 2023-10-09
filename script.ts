@@ -65,8 +65,12 @@ function player_play(choice: string) {
   console.log("playing")
 }
 
+function setButtonsToReset() {
+  
+}
+
 function determineWin() {
-  if (player_score == 5) {
+  if (player_score >= 5) {
     
   }
 }
